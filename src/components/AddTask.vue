@@ -1,24 +1,24 @@
 <template>
   <form @submit="onSubmit" class="add-form">
     <div class="form-control">
-      <label>Task</label>
-      <input type="text" v-model="text" name="text" placeholder="Add Task" />
+      <label>Tâche</label>
+      <input type="text" v-model="text" name="text" placeholder="Ajouter une tâche" />
     </div>
     <div class="form-control">
-      <label>Day & Time</label>
+      <label>Jour et Heure</label>
       <input
         type="text"
         v-model="day"
         name="day"
-        placeholder="Add Day & Time"
+        placeholder="Ajouter une date"
       />
     </div>
     <div class="form-control form-control-check">
-      <label>Set Reminder</label>
+      <label>Mettre un rappel</label>
       <input type="checkbox" v-model="reminder" name="reminder" />
     </div>
 
-    <input type="submit" value="Save Task" class="btn btn-block" />
+    <input type="submit" value="Sauvegarder la tâche" class="btn btn-block" />
   </form>
 </template>
 
@@ -31,6 +31,9 @@ export default {
             day: '',
             reminder: false,
         }
+    },
+    props: {
+      showAddTask: Boolean
     },
     methods: {
         onSubmit(e) {
@@ -52,6 +55,8 @@ export default {
             this.text = ''
             this.day = ''
             this.reminder = false
+
+            this.$emit('toggle-add-task')
         }
     }
 }
@@ -77,13 +82,14 @@ export default {
 .form-control-check {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .form-control-check label {
   flex: 1;
 }
 .form-control-check input {
-  flex: 2;
+  flex: 1;
+  cursor: pointer;
   height: 20px;
+  width: 20px;
 }
 </style>

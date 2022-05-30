@@ -1,7 +1,7 @@
 <template>
     <header>
         <h1>{{title}}</h1>
-        <Button v-show="homePage" @btn-click="$emit('toggle-add-task')" :text="showAddTask ? 'Cancel' : 'Add Task'" :color="showAddTask ? 'red' : 'green'"/>
+        <Button v-show="homePage" @btn-click="$emit('toggle-add-task')" :text="showAddTask ? 'Annuler' : 'Ajouter une tâche'" :color="showAddTask ? 'red' : 'green'"/>
     </header>
 </template>
 
@@ -32,7 +32,7 @@ export default {
 <style scoped>
 header {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 20px;
 }

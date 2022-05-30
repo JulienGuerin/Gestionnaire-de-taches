@@ -1,5 +1,5 @@
 <template>
-  <AddTask v-show="showAddTask" @add-task="addTask" />
+  <AddTask v-show="showAddTask" @add-task="addTask" @toggle-add-task="$emit('toggle-add-task')"/>
   <Tasks
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask"
@@ -20,6 +20,7 @@ export default {
   props: {
     showAddTask: Boolean,
   },
+   emits: ['toggle-add-task'],
   data() {
     return {
       tasks: [],

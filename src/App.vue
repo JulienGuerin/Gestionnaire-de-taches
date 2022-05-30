@@ -3,9 +3,9 @@
     <Header
       @toggle-add-task="toggleAddTask"
       :showAddTask="showAddTask"
-      title="Task Tracker"
+      title="Gestionnaire de Tâches"
     />
-    <router-view :showAddTask="showAddTask"></router-view>
+    <router-view :showAddTask="showAddTask" @toggle-add-task="toggleAddTask"></router-view>
     <Footer></Footer>
   </div>
 </template>
@@ -43,15 +43,20 @@ export default {
 }
 body {
   font-family: "Poppins", sans-serif;
+  padding: 0 30px;
+  background-color: #0080000f;
 }
 .container {
-  max-width: 500px;
+  max-width: 800px;
   margin: 30px auto;
   overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
   padding: 30px;
   border-radius: 5px;
+}
+h1{
+  font-size: clamp(1.31rem, calc(1.2rem + 1.15vw), 2rem);
 }
 .btn {
   display: inline-block;
@@ -60,6 +65,7 @@ body {
   border: none;
   padding: 10px 20px;
   margin: 5px;
+  margin-left: auto;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
